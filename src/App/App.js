@@ -1,16 +1,16 @@
-import logo from '../assets/logo.svg';
-import './App.css';
+import logo from '../assets/logo.svg'
+import './App.css'
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Carlos Saballeth's App
+          Carlos Saballeth&apos;s App
         </p>
         <a
-          className="App-link"
+          className="App-link" xs
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -19,7 +19,7 @@ function App() {
         </a>
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
