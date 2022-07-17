@@ -25,7 +25,8 @@ module.exports = {
   ],
   rules: {
     'react/react-in-jsx-scope': RULES.OFF,
-    'eol-last': RULES.OFF
+    'eol-last': RULES.OFF,
+    'space-before-function-paren': RULES.OFF
   },
   settings: {
     react: {
