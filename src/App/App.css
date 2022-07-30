@@ -3,7 +3,7 @@
 
 /*==================== VARIABLES CSS ====================*/
 :root {
-  --header-height: 4.5rem;
+  --header-height: 3rem;
 
   /*========== Colors ==========*/
   /* Change favorite color */
@@ -702,6 +702,11 @@ img {
   outline: none;
 }
 
+.swiper-pagination-bullet {
+  background-color: var(--first-color);
+  color: var(--first-color);
+}
+
 /*==================== PROJECT IN MIND ====================*/
 .project {
   text-align: center;
@@ -894,6 +899,7 @@ img {
 }
 
 .scrollup__icon {
+  padding-top: .3rem;
   font-size: 1.5rem;
   color: #fff;
 }

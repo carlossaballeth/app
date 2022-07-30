@@ -1,3 +1,5 @@
+import projectImg from '../../assets/img/project.png'
+
 export const Project = () => {
   return (
     <section className='project section'>
@@ -11,7 +13,7 @@ export const Project = () => {
             <i className='uil uil-message project__icon button__icon'></i>
           </a>
         </div>
-        <img src='assets/img/project.png' alt='' className='project__img' />
+        <img src={projectImg} alt='' className='project__img' />
       </div>
     </div>
   </section>
