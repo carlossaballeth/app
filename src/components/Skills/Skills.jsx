@@ -10,12 +10,11 @@ export const Skills = () => {
     backend: false
   })
 
-  const handleOpen = (code) => {
-    if (code === 'frontend') {
-      setOpen({ frontend: true, backend: false })
-    } else {
-      setOpen({ frontend: false, backend: true })
-    }
+  const handleOpen = () => {
+    setOpen({
+      frontend: !open.frontend,
+      backend: !open.backend
+    })
   }
 
   return (
@@ -25,7 +24,7 @@ export const Skills = () => {
 
       <div className='skills__container container grid'>
         <div>
-          <div className={`skills__content ${open.frontend ? 'skills__open' : 'skills__close'}`} onClick={() => handleOpen('frontend')}>
+          <div className={`skills__content ${open.frontend ? 'skills__open' : 'skills__close'}`} onClick={() => handleOpen()}>
             <div className='skills__header'>
               <Frontend size={32} className='skills__icon' />
               <div>
@@ -53,7 +52,7 @@ export const Skills = () => {
         </div>
 
         <div>
-          <div className={`skills__content ${open.backend ? 'skills__open' : 'skills__close'}`} onClick={() => handleOpen('backend')}>
+          <div className={`skills__content ${open.backend ? 'skills__open' : 'skills__close'}`} onClick={() => handleOpen()}>
             <div className='skills__header'>
               <Backend size={32} className='skills__icon' />
               <div>
