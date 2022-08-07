@@ -49,7 +49,6 @@ const App = () => {
       </main>
       <Footer />
       <ScrollTop />
-      <div>---</div>
     </>
   )
 }
