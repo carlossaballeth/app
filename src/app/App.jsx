@@ -4,9 +4,6 @@ import { Home } from '../components/Home/Home'
 import { About } from '../components/About/About'
 import { Skills } from '../components/Skills/Skills'
 import { Qualification } from '../components/Qualification/Qualification'
-import { Services } from '../components/Services/Services'
-import { Portfolio } from '../components/Portfolio/Portfolio'
-import { Contact } from '../components/Contact/Contact'
 import { Footer } from '../components/Footer/Footer'
 import ArrowUp from '@iconscout/react-unicons/icons/uil-arrow-up'
 import './App.css'
@@ -43,13 +40,9 @@ const App = () => {
         <About />
         <Skills />
         <Qualification />
-        <Services />
-        <Portfolio />
-        <Contact />
       </main>
       <Footer />
       <ScrollTop />
-      <div>---</div>
     </>
   )
 }
