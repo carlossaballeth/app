@@ -1,35 +1,29 @@
+import Home from '@iconscout/react-unicons/icons/uil-estate'
 import About from '@iconscout/react-unicons/icons/uil-user'
 import Skills from '@iconscout/react-unicons/icons/uil-file-alt'
-import Services from '@iconscout/react-unicons/icons/uil-briefcase-alt'
-// import Portfolio from '@iconscout/react-unicons/icons/uil-scenery'
-// import Contact from '@iconscout/react-unicons/icons/uil-message'
+import Qualification from '@iconscout/react-unicons/icons/uil-briefcase-alt'
 
 export const navItems = [
   {
+    text: 'Home',
+    icon: <Home className='nav__icon' />,
+    href: '#home'
+  },
+  {
     text: 'About',
-    icon: <About size={20} className='nav__icon' />,
+    icon: <About className='nav__icon' />,
     href: '#about'
   },
   {
     text: 'Skills',
-    icon: <Skills size={20} className='nav__icon' />,
+    icon: <Skills className='nav__icon' />,
     href: '#skills'
   },
   {
     text: 'Qualification',
-    icon: <Services size={20} className='nav__icon' />,
+    icon: <Qualification className='nav__icon' />,
     href: '#qualification'
   }
-  // {
-  //   text: 'Portfolio',
-  //   icon: <Portfolio size={20} className='nav__icon' />,
-  //   href: '#portfolio'
-  // },
-  // {
-  //   text: 'Contact',
-  //   icon: <Contact size={20} className='nav__icon' />,
-  //   href: '#contact'
-  // }
 ]
 
 export const darkTheme = 'dark-theme'
