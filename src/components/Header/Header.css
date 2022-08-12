@@ -1,3 +1,4 @@
+/*==================== NAV ====================*/
 .nav {
   max-width: 968px;
   height: var(--header-height);
@@ -27,6 +28,9 @@
 }
 
 @media screen and (max-width: 767px) {
+  .nav {
+    height: 4rem;
+  }
   .nav__menu {
     position: fixed;
     bottom: -100%;
@@ -64,8 +68,8 @@
 
 .nav__close {
   position: absolute;
-  right: 1.3rem;
-  bottom: 1rem;
+  right: var(--mb-1-5);
+  bottom: 1.3rem;
   font-size: 1.5rem;
   cursor: pointer;
   color: var(--first-color);

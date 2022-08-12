@@ -1,97 +1,66 @@
-import { useEffect } from 'react'
-import Apps from '@iconscout/react-unicons/icons/uil-apps'
-import Close from '@iconscout/react-unicons/icons/uil-times'
-import Moon from '@iconscout/react-unicons/icons/uil-moon'
-import Home from '@iconscout/react-unicons/icons/uil-estate'
-import About from '@iconscout/react-unicons/icons/uil-user'
-import Skills from '@iconscout/react-unicons/icons/uil-file-alt'
-import Services from '@iconscout/react-unicons/icons/uil-briefcase-alt'
-import Portfolio from '@iconscout/react-unicons/icons/uil-scenery'
-import Contact from '@iconscout/react-unicons/icons/uil-message'
 import './Header.css'
+import { useEffect, useState } from 'react'
+import Menu from '@iconscout/react-unicons/icons/uil-apps'
+import Close from '@iconscout/react-unicons/icons/uil-multiply'
+import Moon from '@iconscout/react-unicons/icons/uil-moon'
+import Sun from '@iconscout/react-unicons/icons/uil-sun'
+import { darkTheme, navItems, selectedIcon, selectedTheme } from './Header.consts'
 
 export const Header = () => {
+  const [currentIconTheme, setCurrentIconTheme] = useState(selectedIcon)
+  const getCurrentTheme = () => document.body.classList.contains(darkTheme) ? 'dark' : 'light'
+  const getCurrentIcon = () => document.body.classList.contains(darkTheme) ? 'sun' : 'moon'
+
   useEffect(() => {
-    const navMenu = document.getElementById('nav-menu')
-    const navToggle = document.getElementById('nav-toggle')
-    const navClose = document.getElementById('nav-close')
-    const navLink = document.querySelectorAll('.nav__link')
-
-    if (navToggle) {
-      navToggle.addEventListener('click', () => {
-        navMenu.classList.add('show-menu')
-      })
-    }
-
-    if (navClose) {
-      navClose.addEventListener('click', () => {
-        navMenu.classList.remove('show-menu')
-      })
-    }
-
-    const linkAction = () => {
-      const navMenu = document.getElementById('nav-menu')
-      navMenu.classList.remove('show-menu')
-    }
-
-    navLink.forEach(a => a.addEventListener('click', linkAction))
-
-    function scrollHeader() {
-      const nav = document.getElementById('header')
-      if (this.scrollY >= 80) {
-        nav.classList.add('scroll-header')
-      } else {
-        nav.classList.remove('scroll-header')
-      }
-    }
-
-    window.addEventListener('scroll', scrollHeader)
+    document.body.classList[selectedTheme === 'dark' ? 'add' : 'remove'](darkTheme)
+    setCurrentIconTheme(getCurrentIcon())
+    const homeLink = document.getElementsByClassName('nav__link')[0]
+    homeLink.classList.add('active-link')
   }, [])
+
+  function toggleMenu() {
+    const navMenu = document.getElementById('nav-menu')
+    navMenu.classList.toggle('show-menu')
+  }
+
+  function toggleTheme() {
+    document.body.classList.toggle(darkTheme)
+    setCurrentIconTheme(getCurrentIcon())
+    localStorage.setItem('selected-theme', getCurrentTheme())
+    localStorage.setItem('selected-icon', getCurrentIcon())
+  }
 
   return (
     <header className='header' id='header'>
       <nav className='nav container'>
-        <a href='#' className='nav__logo'>@carlossaballeth</a>
+        <a href='#' className='nav__logo'>
+          @carlossaballeth
+        </a>
         <div className='nav__menu' id='nav-menu'>
           <ul className='nav__list grid'>
-            <li className='nav__item'>
-              <a href='#home' className='nav__link active-link'>
-                <Home size={20} className='nav__icon' /> Home
-              </a>
-            </li>
-            <li className='nav__item'>
-              <a href='#about' className='nav__link'>
-                <About size={20} className='nav__icon' /> About
-              </a>
-            </li>
-            <li className='nav__item'>
-              <a href='#skills' className='nav__link'>
-                <Skills size={20} className='nav__icon' /> Skills
-              </a>
-            </li>
-            <li className='nav__item'>
-              <a href='#services' className='nav__link'>
-                <Services size={20} className='nav__icon' /> Services
-              </a>
-            </li>
-            <li className='nav__item'>
-              <a href='#portfolio' className='nav__link'>
-                <Portfolio size={20} className='nav__icon' /> Portfolio
-              </a>
-            </li>
-            <li className='nav__item'>
-              <a href='#contact' className='nav__link'>
-                <Contact size={20} className='nav__icon' /> Contact
-              </a>
-            </li>
+            {
+              navItems.map((navItem, index) => (
+                <li className='nav__item' key={index}>
+                  <a
+                    href={navItem.href}
+                    className='nav__link'
+                    onClick={toggleMenu}
+                  >
+                    {navItem.icon} {navItem.text}
+                  </a>
+                </li>
+              ))
+            }
           </ul>
-          <Close size={28} className='nav__close' id='nav-close' />
+          <Close className='nav__close' id='nav-close' onClick={toggleMenu} />
         </div>
         <div className='nav__btns'>
-          <Moon size={18} className='change-theme' id='theme-button' />
-          <div className='nav__toggle' id='nav-toggle'>
-            <Apps size={18} />
-          </div>
+          {
+            currentIconTheme === 'sun'
+              ? <Sun className='change-theme' onClick={toggleTheme} />
+              : <Moon className='change-theme' onClick={toggleTheme} />
+          }
+          <Menu className='nav__toggle' id='nav-toggle' onClick={toggleMenu} />
         </div>
       </nav>
     </header>

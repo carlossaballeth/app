@@ -1,32 +1,31 @@
-export const items = [
+import Home from '@iconscout/react-unicons/icons/uil-estate'
+import About from '@iconscout/react-unicons/icons/uil-user'
+import Skills from '@iconscout/react-unicons/icons/uil-file-alt'
+import Qualification from '@iconscout/react-unicons/icons/uil-briefcase-alt'
+
+export const navItems = [
   {
     text: 'Home',
-    iconCode: 'home',
+    icon: <Home className='nav__icon' />,
     href: '#home'
   },
   {
     text: 'About',
-    iconCode: 'uil-user',
+    icon: <About className='nav__icon' />,
     href: '#about'
   },
   {
     text: 'Skills',
-    iconCode: 'uil-file-alt',
+    icon: <Skills className='nav__icon' />,
     href: '#skills'
   },
   {
-    text: 'Services',
-    iconCode: 'uil-briefcase-alt',
-    href: '#services'
-  },
-  {
-    text: 'Portfolio',
-    iconCode: 'uil-scenery',
-    href: '#portfolio'
-  },
-  {
-    text: 'Contact',
-    iconCode: 'uil-message',
-    href: '#contact'
+    text: 'Qualification',
+    icon: <Qualification className='nav__icon' />,
+    href: '#qualification'
   }
 ]
+
+export const darkTheme = 'dark-theme'
+export const selectedTheme = localStorage.getItem('selected-theme')
+export const selectedIcon = localStorage.getItem('selected-icon')
